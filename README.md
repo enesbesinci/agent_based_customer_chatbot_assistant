@@ -1,5 +1,3 @@
-# Agent Based Customer Chatbot Assistant
-
 ### **Customer Shopping Assistant - Project Overview**  
 
 This project introduces an **LLM-powered agent-based chatbot** designed to enhance the online shopping experience. The system efficiently handles customer interactions by providing real-time product details, performing filtered searches, comparing products, managing purchases, and tracking orders.  
@@ -10,7 +8,7 @@ This project introduces an **LLM-powered agent-based chatbot** designed to enhan
 - **Enhanced Shopping Experience:** Provides personalized recommendations and real-time order tracking.  
 
 #### **Technology Stack**  
-- **LLM Model:** gpt-4o-mini from OpenAI 
+- **LLM Model:** gpt-4o-mini from OpenAI   
 - **Embedding Model:** text-embedding-3-small from OpenAI   
 - **Database:** SQLite  
 - **Vector Storage:** Chroma  
@@ -28,6 +26,12 @@ This project introduces an **LLM-powered agent-based chatbot** designed to enhan
   - **LLM-Based Input Filtering:** Ensures chatbot interactions remain relevant and appropriate.  
   - **Security Mechanisms:** Implemented to prevent harmful or misleading content generation.  
 
-This project delivers a **scalable, intelligent, and secure AI-driven shopping assistant**, enhancing customer engagement and optimizing e-commerce support operations. For further details, please refer to the project documentation.
+#### **Project Structure**  
+- **Agent-Based Shopping Assistant Python Code** → `notebooks/`  
+- **Sample Datasets** → `dataset/`  
+- **Project Description** → `project_description.md`  
+- **Example Questions & Answers** → `questions_and_answers/`  
+- **Project Diagrams & Images** → `diagram_and_images/`  
 
+This project delivers a **scalable, intelligent, and secure AI-driven shopping assistant**, enhancing customer engagement and optimizing e-commerce support operations. For further details, please refer to the project documentation.
 
