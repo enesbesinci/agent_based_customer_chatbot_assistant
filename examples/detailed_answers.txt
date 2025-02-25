@@ -1,4 +1,3 @@
-
 hi, what are the technical spesifications of the phone I bought last time?
 ================================== [1m Ai Message  [0m==================================
 Tool Calls:
