@@ -1,7 +1,6 @@
-### **Customer Shopping Assistant - Project Overview** 
-
 ![agent_gradio_interface](https://github.com/user-attachments/assets/951781ed-b46d-40cb-8f12-043b3cce3164)
 
+### **Customer Shopping Assistant - Project Overview** 
 
 This project introduces an **LLM-powered agent-based chatbot** designed to enhance the online shopping experience. The system efficiently handles customer interactions by providing real-time product details, performing filtered searches, comparing products, managing purchases, and tracking orders.  
 
