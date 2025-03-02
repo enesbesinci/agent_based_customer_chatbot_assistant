@@ -1,6 +1,7 @@
+```markdown
 # Agent-Based Customer Chatbot Workflow
 
-This file contains example questions for the chatbot, taken from the **"questions.txt"** file, along with **tool calls** and the model's final responses. The following workflow details each step in processing a customer query.
+This file contains example questions for the chatbot, taken from the **"questions.txt"** file, along with **tool calls**, the full tool responses, and the model's final answers. This document details each step in processing a customer query.
 
 ---
 
@@ -15,7 +16,7 @@ This file contains example questions for the chatbot, taken from the **"question
    - **Arguments:** Parameters sent to the tool (e.g., query details or product name).
 
 3. **Tool Response:**  
-   The output returned by the tool (e.g., product details, search results, or FAQ answers).
+   The complete output returned by the tool (e.g., product details, search results, or FAQ answers).
 
 4. **Final Model Response:**  
    The AI synthesizes the tool's output to deliver a clear and concise final answer to the customer.
@@ -36,7 +37,15 @@ This file contains example questions for the chatbot, taken from the **"question
     - `query: Samsung Galaxy S21`
 
 - **Tool Response:**  
-  Technical details for the Samsung Galaxy S21 are returned.
+  ```plaintext
+  Name: product_specifications_retriever
+
+  The Samsung Galaxy S21 is a high-performance smartphone with a 6.2-inch Dynamic AMOLED 2X display that provides vibrant and sharp visuals. The Galaxy S21 is powered by the Exynos 2100 processor, offering smooth and responsive performance. It features a
+
+  The Galaxy S21 supports 5G connectivity and has a 4000mAh battery, providing all-day usage with fast charging capabilities. The device is available in several colors and storage configurations.
+
+  Product: Samsung Galaxy S21
+  ```
 
 - **Final Model Response:**  
   *"The Samsung Galaxy S21 has the following technical specifications:"*  
@@ -63,7 +72,11 @@ This file contains example questions for the chatbot, taken from the **"question
     - `in_stock: True`
 
 - **Tool Response:**  
-  A JSON list of available smartphones, including iPhone 13, Samsung Galaxy S21, Google Pixel 6, and OnePlus 9.
+  ```plaintext
+  Name: search_products
+
+  [{"PRODUCT_ID": 1, "CATEGORY_NAME": "Smartphones", "PRODUCT_NAME": "iPhone 13", "PRICE": 699.99, "STOCK": 50}, {"PRODUCT_ID": 2, "CATEGORY_NAME": "Smartphones", "PRODUCT_NAME": "Samsung Galaxy S21", "PRICE": 799.99, "STOCK": 27}, {"PRODUCT_ID": 6, "CATEGORY_NAME": "Smartphones", "PRODUCT_NAME": "Google Pixel 6", "PRICE": 599.99, "STOCK": 25}, {"PRODUCT_ID": 7, "CATEGORY_NAME": "Smartphones", "PRODUCT_NAME": "OnePlus 9", "PRICE": 729.99, "STOCK": 40}]
+  ```
 
 - **Final Model Response:**  
   *"Here are some smartphone options currently available:"*  
@@ -91,7 +104,11 @@ This file contains example questions for the chatbot, taken from the **"question
     - `query: Samsung Galaxy S21 pros and cons`
 
 - **Tool Response:**  
-  Pros and cons from multiple review sources (e.g., TechSpot, CNET, PCMag).
+  ```plaintext
+  Name: tavily_search_results_json
+
+  [{"url": "https://www.techspot.com/products/smartphones/samsung-sm-g991-galaxy-s21.217920/", "content": "Jul 11, 2024 ... Samsung Galaxy S21 reviews, pros and cons. Liked: Affordable for a Samsung flagship Powerful and capable phone Disliked: No microSD card"}, {"url": "https://www.cnet.com/tech/mobile/samsung-galaxy-s21-review-5g-phone-your-next-upgrade/", "content": "Feb 4, 2021 ... Review: Samsung's Galaxy S21 is the no-brainer upgrade phone · The Galaxy S21 gets a striking new look · Lower resolution screen with a high"}, {"url": "https://www.pcmag.com/reviews/samsung-galaxy-s21", "content": "PCMag-Recommended Samsung Galaxy S21 Accessories\nSamsung Galaxy Buds2 Review\nSamsung Galaxy S21 5G Silicone Cover\nTile Pro\nThe Snapdragon 888 Is a Step Forward\nThe S21-series phones are the first we've seen with Qualcomm's new Snapdragon 888 chipset. Similar Products\nApple iPhone 12 mini\nSamsung Galaxy S20 FE 5G\nApple iPhone 12\nOnePlus 8T\nSamsung Galaxy S21 Ultra\nA Colorful and Comfortable Body\nThe smallest premium Android phone right now is a little bigger than last year's. AT&T and T-Mobile haven't made much noise about their millimeter-wave networks or plans over the past year, but they do exist, and if you want to have the potential to get onto those high-speed networks if they expand, then the unlocked S21 is a better bet than last year ... (truncated)"}]
+  ```
 
 - **Final Model Response:**  
   **Pros:**  
@@ -121,7 +138,18 @@ This file contains example questions for the chatbot, taken from the **"question
     - `query: delivery options for smartphones`
 
 - **Tool Response:**  
-  Details regarding Standard Shipping and Express Shipping (including cost and delivery times).
+  ```plaintext
+  Name: retriever_faq
+
+  Q: What are the shipping options available?
+  A: We offer two shipping options:
+  Standard Shipping: $5.99, estimated delivery within 3-5 business days.
+  Express Shipping: $15.99, estimated delivery within 1-2 business days.
+
+  These options may vary based on the destination and product availability.
+
+  A: If your order is delayed beyond the expected delivery window, please contact our customer service team. We will investigate the matter with the shipping provider and ensure your issue is resolved as soon as possible.
+  ```
 
 - **Final Model Response:**  
   *"For the Samsung Galaxy S21, the available delivery options are:"*  
@@ -143,7 +171,17 @@ This file contains example questions for the chatbot, taken from the **"question
     - `query: return policy for smartphones`
 
 - **Tool Response:**  
-  Return policy details, including a **30-day return window**, conditions, and customer service contact instructions.
+  ```plaintext
+  Name: retriever_faq
+
+  A: We accept returns within 30 days of purchase as long as the item is in its original condition and packaging. To initiate a return, please contact our customer service team, and we will provide you with further instructions.
+
+  Q: Can I exchange an item?
+  A: Yes, we offer exchanges for products that are defective or damaged during shipping. If you receive a faulty item, please reach out to our support team, and we will arrange a replacement.
+
+  4. Returns and Refunds
+  Q: What is your return policy?
+  ```
 
 - **Final Model Response:**  
   *"Yes, you can return the Samsung Galaxy S21 after purchase."*  
@@ -173,7 +211,9 @@ This file contains example questions for the chatbot, taken from the **"question
     - `shipping_method: Express Shipping`
 
 - **Tool Response:**  
-  Confirmation of the purchase process initiation.
+  ```plaintext
+  [Tool Response not explicitly detailed; assumed confirmation of purchase process initiation]
+  ```
 
 - **Final Model Response:**  
   The final confirmation message with purchase details is delivered to the customer.
@@ -194,7 +234,11 @@ This file contains example questions for the chatbot, taken from the **"question
     - **Call ID:** `call_ARsMssMvsC0bQnI7ClcGZfCd`
 
 - **Tool Response:**  
-  The latest order details (Order ID 6) including shipping method and estimated delivery date.
+  ```plaintext
+  Name: fetch_user_order_information
+
+  [{"CUSTOMER_ID": 1, "FIRST_NAME": "John", "LAST_NAME": "Doe", "ORDER_ID": 1, "ORDER_DATE": "2024-09-10", "PRODUCT_NAME": "iPhone 13", "QUANTITY": 1, "PRICE": 699.99}, {"CUSTOMER_ID": 1, "FIRST_NAME": "John", "LAST_NAME": "Doe", "ORDER_ID": 3, "ORDER_DATE": "2024-10-21", "PRODUCT_NAME": "Samsung Galaxy S21", "QUANTITY": 1, "PRICE": 799.99}, {"CUSTOMER_ID": 1, "FIRST_NAME": "John", "LAST_NAME": "Doe", "ORDER_ID": 4, "ORDER_DATE": "2024-10-21", "PRODUCT_NAME": "Samsung Galaxy S21", "QUANTITY": 1, "PRICE": 799.99}, {"CUSTOMER_ID": 1, "FIRST_NAME": "John", "LAST_NAME": "Doe", "ORDER_ID": 5, "ORDER_DATE": "2025-01-04", "PRODUCT_NAME": "Samsung Galaxy S21", "QUANTITY": 1, "PRICE": 799.99}, {"CUSTOMER_ID": 1, "FIRST_NAME": "John", "LAST_NAME": "Doe", "ORDER_ID": 6, "ORDER_DATE": "2025-01-06", "PRODUCT_NAME": "Samsung Galaxy S21", "QUANTITY": 1, "PRICE": 799.99}]
+  ```
 
 - **Final Model Response:**  
   *"Your last purchase was the **Samsung Galaxy S21**. Here are the details:"*  
@@ -213,8 +257,8 @@ This workflow demonstrates how the **agent-based customer chatbot** processes qu
 
 - **Receiving the customer question** (sourced from **"questions.txt"**)
 - **Executing tool calls** with clear parameters and unique IDs
-- **Presenting tool responses** (such as product specifications, search results, or FAQ answers)
+- **Presenting full tool responses** (such as product specifications, search results, or FAQ answers)
 - **Synthesizing the final answer** for the customer in an easy-to-understand format
 
 This transparent process allows users to see exactly **what happens behind the scenes**—from **tool invocation** to the **final response**.
-
+```
