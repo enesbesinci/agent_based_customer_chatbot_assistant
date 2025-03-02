@@ -16,4 +16,4 @@ This folder contains the following files and a brief description of their conten
    - Sample user comments related to products.
 
 5. **products.txt**  
-   - A list of available products.
+   - A list of available products and its technical spesifications.
