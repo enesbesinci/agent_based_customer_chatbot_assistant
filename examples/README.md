@@ -1,4 +1,3 @@
-```markdown
 # Agent-Based Customer Chatbot Workflow
 
 This file contains example questions for the chatbot, taken from the **"questions.txt"** file, along with **tool calls**, the full tool responses, and the model's final answers. This document details each step in processing a customer query.
@@ -261,4 +260,3 @@ This workflow demonstrates how the **agent-based customer chatbot** processes qu
 - **Synthesizing the final answer** for the customer in an easy-to-understand format
 
 This transparent process allows users to see exactly **what happens behind the scenes**—from **tool invocation** to the **final response**.
-```
