@@ -1,0 +1,229 @@
+---
+
+## Agent-Based Customer Chatbot Workflow
+
+Each entry in this file follows the same structure, which is detailed below:
+
+1. **Customer Question:**  
+   This is the initial query submitted by the customer.
+
+2. **Initial AI Message:**  
+   The model receives the question and decides how to process it. At this stage, it **initiates a tool call**.  
+   - **Tool Call Details:**  
+     - **Tool Name & Call ID:** Indicates which tool is invoked and the unique identifier for the call.  
+     - **Arguments:** The parameters sent to the tool (e.g., search query or product name).
+
+3. **Tool Response:**  
+   The output returned by the called tool (such as product details, search results, or FAQ answers).
+
+4. **Final Model Response:**  
+   The AI synthesizes the tool's response and delivers a clear, final answer to the customer.
+
+---
+
+## Example Conversation Flow
+
+### **Example 1: Technical Specifications Query**
+
+- **Customer Question:**  
+  > *"hi, what are the technical specifications of the phone I bought last time?"*
+
+- **Initial AI Message & Tool Call:**  
+  - **Tool:** `product_specifications_retriever`  
+  - **Call ID:** `call_aEsBaibym2JSsrlyf04mgwxn`  
+  - **Arguments:**  
+    > `query: Samsung Galaxy S21`
+
+- **Tool Response:**  
+  The tool returns technical details for the Samsung Galaxy S21.
+
+- **Final Model Response:**  
+  > *"The Samsung Galaxy S21 has the following technical specifications:"*  
+  >  
+  > **Display:** 6.2-inch Dynamic AMOLED 2X  
+  > **Processor:** Exynos 2100  
+  > **Connectivity:** 5G support  
+  > **Battery:** 4000mAh with fast charging capabilities  
+  > **Colors:** Available in several colors  
+  > **Storage:** Various configurations available  
+  >  
+  > *"If you need more specific details, feel free to ask!"*
+
+---
+
+### **Example 2: Inquiry About Other Smartphone Options**
+
+- **Customer Question:**  
+  > *"what are the other smartphone options?"*
+
+- **Initial AI Message & Tool Call:**  
+  - **Tool:** `search_products`  
+  - **Call ID:** `call_TvpXL5QwpWdCcHAKlJ2AW1Ok`  
+  - **Arguments:**  
+    > `category_name: smartphones`  
+    > `in_stock: True`
+
+- **Tool Response:**  
+  A JSON list containing options such as iPhone 13, Samsung Galaxy S21, Google Pixel 6, and OnePlus 9.
+
+- **Final Model Response:**  
+  > *"Here are some smartphone options currently available:"*  
+  >  
+  > **1. iPhone 13**  
+  > &nbsp;&nbsp;&nbsp;**Price:** $699.99, **Stock:** 50 units  
+  >  
+  > **2. Samsung Galaxy S21**  
+  > &nbsp;&nbsp;&nbsp;**Price:** $799.99, **Stock:** 27 units  
+  >  
+  > **3. Google Pixel 6**  
+  > &nbsp;&nbsp;&nbsp;**Price:** $599.99, **Stock:** 25 units  
+  >  
+  > **4. OnePlus 9**  
+  > &nbsp;&nbsp;&nbsp;**Price:** $729.99, **Stock:** 40 units  
+  >  
+  > *"If you would like more information about any of these models or need purchasing assistance, just let me know!"*
+
+---
+
+### **Example 3: Pros and Cons of Samsung Galaxy**
+
+- **Customer Question:**  
+  > *"tell me about samsung galaxy, what are pros and cons?"*
+
+- **Initial AI Message & Tool Call:**  
+  - **Tool:** `tavily_search_results_json`  
+  - **Call ID:** `call_Kx9GNQf1j47ZFqPzneDuiphW`  
+  - **Arguments:**  
+    > `query: Samsung Galaxy S21 pros and cons`
+
+- **Tool Response:**  
+  Pros and cons are gathered from various review sites (e.g., TechSpot, CNET, PCMag).
+
+- **Final Model Response:**  
+  > **Pros:**  
+  > - *Affordable for a flagship device*  
+  > - *Powerful performance (Snapdragon 888/Exynos 2100)*  
+  > - *5G connectivity*  
+  > - *Modern, attractive design*  
+  > - *Compact size*  
+  >  
+  > **Cons:**  
+  > - *No microSD card slot for expandable storage*  
+  > - *Lower resolution screen compared to some competitors*  
+  >  
+  > *"For more detailed reviews, you can refer to the provided links."*
+
+---
+
+### **Example 4: Delivery Options Inquiry**
+
+- **Customer Question:**  
+  > *"what are the delivery options for this smartphone?"*
+
+- **Initial AI Message & Tool Call:**  
+  - **Tool:** `retriever_faq`  
+  - **Call ID:** `call_FLRsp1jITRwsacnSPlNDJf2h`  
+  - **Arguments:**  
+    > `query: delivery options for smartphones`
+
+- **Tool Response:**  
+  Information regarding Standard Shipping and Express Shipping (with respective costs and delivery times).
+
+- **Final Model Response:**  
+  > *"For the Samsung Galaxy S21, the available delivery options are:"*  
+  >  
+  > **Standard Shipping:** $5.99, estimated delivery in 3-5 business days  
+  > **Express Shipping:** $15.99, estimated delivery in 1-2 business days  
+  >  
+  > *"Note that options may vary based on destination and product availability."*
+
+---
+
+### **Example 5: Return Policy Inquiry**
+
+- **Customer Question:**  
+  > *"btw can I return this smartphone after buying and how?"*
+
+- **Initial AI Message & Tool Call:**  
+  - **Tool:** `retriever_faq`  
+  - **Call ID:** `call_nmE1nmAHlMAPPjRgasHKFS6Q`  
+  - **Arguments:**  
+    > `query: return policy for smartphones`
+
+- **Tool Response:**  
+  The tool returns details on the return policy: a **30-day return window**, item condition requirements, and customer service instructions.
+
+- **Final Model Response:**  
+  > *"Yes, you can return the Samsung Galaxy S21 after purchase."*  
+  >  
+  > **Return Policy:**  
+  > - **Return Period:** 30 days  
+  > - **Condition:** Item must be in its original condition and packaging  
+  >  
+  > **How to Initiate a Return:**  
+  > 1. **Contact Customer Service**  
+  > 2. **Follow the Provided Instructions**  
+  >  
+  > *"Feel free to ask if you need more assistance with the return process."*
+
+---
+
+### **Example 6: Purchase Request with Express Shipping**
+
+- **Customer Question:**  
+  > *"okey I liked it, I wanna buy this one, please buy it for me with express shipping"*
+
+- **Initial AI Message & Tool Call:**  
+  - **Tool:** `easy_buy_product`  
+  - **Call ID:** `call_kdJTJ2aLJEPf5bAitswMRGFh`  
+  - **Arguments:**  
+    > `product_name: Samsung Galaxy S21`  
+    > `quantity: 1`  
+    > `shipping_method: Express Shipping`
+
+- **Tool Response:**  
+  Confirmation that the purchase process has been initiated.
+
+- **Final Model Response:**  
+  The model returns a confirmation message along with the purchase details.
+
+---
+
+### **Example 7: Order History and Delivery Status Inquiry**
+
+- **Customer Question:**  
+  > *"what was my last purchase and what is the estimated delivery date?"*
+
+- **Initial AI Message & Tool Calls:**  
+  - **Tool 1:** `fetch_shipping_status`  
+    - **Call ID:** `call_6Y3DX9gSAsEjzVd07zBCdLyH`  
+    - **Arguments:**  
+      > `customer_id: 1, order_id: 6`  
+  - **Tool 2:** `fetch_user_order_information`  
+    - **Call ID:** `call_ARsMssMvsC0bQnI7ClcGZfCd`
+
+- **Tool Response:**  
+  The tools return order details for the latest purchase (Order ID 6) including the **shipping method (Express Shipping)** and the **estimated delivery date**.
+
+- **Final Model Response:**  
+  > *"Your last purchase was the **Samsung Galaxy S21**. Here are the details:"*  
+  >  
+  > **Order ID:** 6  
+  > **Order Date:** January 6, 2025  
+  > **Shipping Method:** Express Shipping  
+  > **Shipping Cost:** $15.99  
+  > **Estimated Delivery Date:** January 8, 2025  
+  >  
+  > *"If you have any more questions or need further assistance, feel free to ask!"*
+
+---
+
+## **Summary**
+
+This workflow demonstrates how the **agent-based customer chatbot** processes a query by:
+- **Receiving the customer question** (sourced from **"questions.txt"**)
+- **Executing tool calls** with clear parameters and unique IDs
+- **Presenting tool responses** (such as product specifications, search results, or FAQ answers)
+- **Synthesizing the final answer** for the customer in an easy-to-understand format
+
+Each step is designed to be transparent, so users can clearly see **what happens behind the scenes**—from **tool invocation** to the **final response**.
