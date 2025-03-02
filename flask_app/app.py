@@ -60,7 +60,7 @@ embeddings = OpenAIEmbeddings(model="text-embedding-3-small",
 
 
 # sql database: e-commerce-data.sqlite
-local_file = "your sql database path that was created in the "creating_example_data.ipynb""
+local_file = "your sql database path that was created in the creating_example_data.ipynb"
 
 # tools
 
