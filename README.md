@@ -29,11 +29,11 @@ This project introduces an **LLM-powered agent-based chatbot** designed to enhan
   - **Security Mechanisms:** Implemented to prevent harmful or misleading content generation.  
 
 #### **Project Structure**  
-- **Agent-Based Shopping Assistant Python Code** → `notebooks/`  
-- **Sample Datasets** → `dataset/`  
-- **Project Description** → `project_description.md`  
-- **Example Questions & Answers** → `questions_and_answers/`  
-- **Project Diagrams & Images** → `diagram_and_images/`  
+- **Agent-Based Shopping Assistant Python Code** → `flask_app/` % `streamlit_app/`
+- **Sample Datasets** → `datasets/`  
+- **Project Description** → `README.md`  
+- **Example Questions & Answers** → `examples/`  
+- **Project Diagrams & Images** → `images/`  
 
 This project delivers a **scalable, intelligent, and secure AI-driven shopping assistant**, enhancing customer engagement and optimizing e-commerce support operations. For further details, please refer to the project documentation.
 
