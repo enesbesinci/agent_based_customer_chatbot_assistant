@@ -29,7 +29,7 @@ This project introduces an **LLM-powered agent-based chatbot** designed to enhan
   - **Security Mechanisms:** Implemented to prevent harmful or misleading content generation.  
 
 #### **Project Structure**  
-- **Agent-Based Shopping Assistant Python Code** → `flask_app/` % `streamlit_app/`
+- **Agent-Based Shopping Assistant Python Code** → `flask_app/` & `streamlit_app/`
 - **Sample Datasets** → `datasets/`  
 - **Project Description** → `README.md`  
 - **Example Questions & Answers** → `examples/`  
