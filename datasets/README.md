@@ -1,4 +1,4 @@
-# Project Files
+# File Description
 
 This folder contains the following files and a brief description of their contents:
 
