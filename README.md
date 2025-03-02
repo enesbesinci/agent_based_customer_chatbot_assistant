@@ -33,7 +33,8 @@ This project introduces an **LLM-powered agent-based chatbot** designed to enhan
 - **Sample Datasets** → `datasets/`  
 - **Project Description** → `README.md`  
 - **Example Questions & Answers** → `examples/`  
-- **Project Diagrams & Images** → `images/`  
+- **Project Diagrams & Images** → `images/`
+- **Required Libraries** → `requirements.txt`  
 
 This project delivers a **scalable, intelligent, and secure AI-driven shopping assistant**, enhancing customer engagement and optimizing e-commerce support operations. For further details, please refer to the project documentation.
 
