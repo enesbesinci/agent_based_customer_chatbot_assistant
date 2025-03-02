@@ -57,7 +57,7 @@ embeddings = OpenAIEmbeddings(model="text-embedding-3-small",
 
 
 # sql database file: e-commerce-data.sqlite
-local_file = "C://Users//LENOVO//Desktop//agent_based_customer_assistant//datasets//e-commerce-data.sqlite"
+local_file = "your sql database path"
 
 # tools
 
