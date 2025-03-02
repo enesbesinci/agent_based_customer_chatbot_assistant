@@ -56,8 +56,8 @@ embeddings = OpenAIEmbeddings(model="text-embedding-3-small",
                               openai_api_key=OPENAI_API_KEY)
 
 
-# sql database file: e-commerce-data.sqlite
-local_file = "your sql database path"
+# sql database: e-commerce-data.sqlite
+local_file = "your sql database path that was created in the "creating_example_data.ipynb""
 
 # tools
 
@@ -416,7 +416,7 @@ def easy_buy_product(config: RunnableConfig,
 
 # search for technical specifications of products
 
-loader_products = TextLoader("C://Users//LENOVO//Desktop//agent_based_customer_assistant//datasets//products.txt")
+loader_products = TextLoader("Path to the products.txt file")
 products_docs = loader_products.load()
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=256,
@@ -455,7 +455,8 @@ tool_retriever_technical_specifications = create_retriever_tool(
 
 # search for comments
 
-loader_comments = TextLoader("C://Users//LENOVO//Desktop//agent_based_customer_assistant//datasets//product_comments.txt")
+
+loader_comments = TextLoader("path to the product_comments.txt file")
 product_comments_doc = loader_comments.load()
 
 
@@ -493,7 +494,8 @@ tool_retriever_product_comments = create_retriever_tool(
 # search for company policies
 
 # file path
-loader_faq = TextLoader("C://Users//LENOVO//Desktop//agent_based_customer_assistant//datasets//faq.txt")
+
+loader_faq = TextLoader("path to the faq.txt file")
 faq_documents = loader_faq.load()
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=256,
