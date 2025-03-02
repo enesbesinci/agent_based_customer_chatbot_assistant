@@ -45,6 +45,9 @@ app = Flask(__name__)
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY") # your openai api key
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY") # your tavily api key
+COHERE_API_KEY = os.getenv("COHERE_API_KEY") # your cohere api key
+
 
 # create an llm from langchain_opeanai to use in the agent
 llm = ChatOpenAI(model="gpt-4o-mini",
